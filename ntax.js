@@ -79,13 +79,22 @@ export default function InputPage() {
           } else if (taxableAmount <= 2000000) {
             totalTaxAmount =
               600000 *( retirementBenefit =="SSF"?0: 0.01) + 200000 * 0.1 + 300000 * 0.2 + (taxableAmount - 1100000) * 0.3;
-          } else {
+          } else if(taxableAmount <= 5000000){
             totalTaxAmount =
               600000 * (retirementBenefit =="SSF"?0: 0.01 )+
               200000 * 0.1 +
               300000 * 0.2 +
               900000 * 0.3 +
+              
               (taxableAmount - 2000000) * 0.36;
+          }else {
+            totalTaxAmount =
+              600000 * (retirementBenefit =="SSF"?0: 0.01 )+
+              200000 * 0.1 +
+              300000 * 0.2 +
+              900000 * 0.3 +
+              3000000 * 0.36+
+              (taxableAmount - 5000000) * 0.39;
           }
     } else {
       
@@ -102,13 +111,20 @@ export default function InputPage() {
       totalTaxAmount =
         500000 * (retirementBenefit =="SSF"?0: 0.01 )+200000 * 0.1 + 300000 * 0.2 + (taxableAmount - 1000000) * 0.3;
         console.log(totalTaxAmount)
-    } else {
+    } else if (taxableAmount <= 5000000) {
+      console.log(totalTaxAmount)
+      totalTaxAmount =
+        500000 * (retirementBenefit =="SSF"?0: 0.01 )+200000 * 0.1 + 300000 * 0.2 +100000*0.3+ (taxableAmount - 2000000) * 0.36;
+        console.log(totalTaxAmount)
+    } 
+    else {
       totalTaxAmount =
         500000 *  (retirementBenefit =="SSF"?0:0.01 )+
         200000 * 0.1 +
         300000 * 0.2 +
         1000000 * 0.3 +
-        (taxableAmount - 2000000) * 0.36;
+        3000000 *0.36+
+        (taxableAmount - 5000000) * 0.36;
     }
   }
   let tempTax =totalTaxAmount
